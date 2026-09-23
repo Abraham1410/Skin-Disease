@@ -1,4 +1,51 @@
 workflows:
+  ios-simulator:
+    name: iOS Simulator Test
+    instance_type: mac_mini_m2
+    max_build_duration: 120
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter pub get
+
+      - name: Install CocoaPods
+        script: |
+          cd ios && pod install
+
+      - name: Boot iOS Simulator
+        script: |
+          # List available simulators
+          xcrun simctl list devices available
+
+          # Boot iPhone 16 simulator (atau yang tersedia)
+          SIMULATOR_ID=$(xcrun simctl list devices available | grep "iPhone" | head -1 | grep -oE '[0-9A-F-]{36}')
+          xcrun simctl boot "$SIMULATOR_ID" || true
+
+          echo "✅ Simulator booted: $SIMULATOR_ID"
+
+      - name: Run app on Simulator
+        script: |
+          # Build dan jalankan di simulator
+          flutter run -d $(xcrun simctl list devices booted | grep -oE '[0-9A-F-]{36}' | head -1) --release &
+
+          echo ""
+          echo "=========================================="
+          echo "✅ APP RUNNING ON iOS SIMULATOR"
+          echo "=========================================="
+          echo "Gunakan VNC untuk melihat dan berinteraksi"
+          echo "dengan app di iOS Simulator."
+          echo ""
+          echo "App akan tetap berjalan selama 30 menit"
+          echo "untuk memberikan waktu testing."
+          echo "=========================================="
+
+          # Tunggu 30 menit agar user punya waktu test via VNC
+          sleep 1800
+
   ios-build:
     name: iOS Build
     instance_type: mac_mini_m2
