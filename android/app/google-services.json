@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "717378872860",
+    "project_id": "skindisease-ac0a3",
+    "storage_bucket": "skindisease-ac0a3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717378872860:android:514511ca6df08a5ddbe1d9",
+        "android_client_info": {
+          "package_name": "com.example.skindisease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717378872860-epuc9n98hqbl7dov6sc876j4ffrtvcvt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.skindisease",
+            "certificate_hash": "f98cf64a3b115317e87de5eb53cded87544b3586"
+          }
+        },
+        {
+          "client_id": "717378872860-gtgb38k3dt6k9ptpgaf3j804grc5qg6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaQXe7xDZcTntJBWFRTofZcYbYQqINZ0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717378872860-gtgb38k3dt6k9ptpgaf3j804grc5qg6c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "717378872860-p0cop2jgcvtebi7m1e6joff9mbl4bsha.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.skindisease"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
